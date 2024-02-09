@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "name": "Guess",
+    "category": "bag",
+    "price": 99.0,
+    "bestseller": true,
+    "picture": "../../public/assets/guess.png"
+  },
+  {
+    "id": 2,
+    "name": "Bag B",
+    "category": "bag",
+    "price": 109.0,
+    "bestseller": true,
+    "picture": "../../public/assets/white.png"
+  },
+  {
+    "id": 3,
+    "name": "JWPEI",
+    "category": "bag",
+    "price": 149.0,
+    "bestseller": true,
+    "picture": "../../public/assets/jwpei.png"
+  },
+  {
+    "id": 4,
+    "name": "Disel",
+    "category": "bag",
+    "price": 109.0,
+    "bestseller": false,
+    "picture": "../../public/assets/disel.png"
+  },
+  {
+    "id": 5,
+    "name": "Guess 1",
+    "category": "bag",
+    "price": 119.0,
+    "bestseller": false,
+    "picture": "../../public/assets/guess1.png"
+  },
+  {
+    "id": 6,
+    "name": "JWKEI",
+    "category": "bag",
+    "price": 149.0,
+    "bestseller": false,
+    "picture": "../../public/assets/jw.png"
+  },
+  {
+    "id": 7,
+    "name": "gucci wallet",
+    "category": "wallet",
+    "price": 119.0,
+    "bestseller": false,
+    "picture": "../../public/assets/GUCCIWL.JPG"
+  },
+  {
+    "id": 8,
+    "name": "backpack",
+    "category": "backpack",
+    "price": 119.0,
+    "bestseller": false,
+    "picture": "../../public/assets/backpack.JPG"
+  }
+]

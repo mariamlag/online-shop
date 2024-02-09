@@ -1,0 +1,19 @@
+:root {
+  font-family: "Josefin Sans";
+  color: white;
+  background-color: #fbf9f5;
+}
+body {
+  height: 100%;
+  margin: 0 auto;
+}
+
+@font-face {
+  font-family: "tsripa";
+  src: local("tsripa"), url("/fonts/tsripa.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+a {
+  text-decoration: none;
+}
