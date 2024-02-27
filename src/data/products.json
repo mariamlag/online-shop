@@ -13,7 +13,7 @@
     "category": "bag",
     "price": 109.0,
     "bestseller": true,
-    "picture": "assets/white.png"
+    "picture": "/assets/white.PNG"
   },
   {
     "id": 3,
@@ -21,7 +21,7 @@
     "category": "bag",
     "price": 149.0,
     "bestseller": true,
-    "picture": "../../public/assets/jwpei.png"
+    "picture": "/assets/jwpei.PNG"
   },
   {
     "id": 4,
@@ -29,7 +29,7 @@
     "category": "bag",
     "price": 109.0,
     "bestseller": false,
-    "picture": "../../public/assets/disel.png"
+    "picture": "/assets/disel.PNG"
   },
   {
     "id": 5,
@@ -37,7 +37,7 @@
     "category": "bag",
     "price": 119.0,
     "bestseller": false,
-    "picture": "../../public/assets/guess1.png"
+    "picture": "/assets/guess1.PNG"
   },
   {
     "id": 6,
@@ -45,7 +45,7 @@
     "category": "bag",
     "price": 149.0,
     "bestseller": false,
-    "picture": "../../public/assets/jw.png"
+    "picture": "/assets/jw.PNG"
   },
   {
     "id": 7,
@@ -53,7 +53,7 @@
     "category": "wallet",
     "price": 119.0,
     "bestseller": false,
-    "picture": "../../public/assets/LW.png"
+    "picture": "/assets/LW.png"
   },
   {
     "id": 8,
@@ -61,6 +61,6 @@
     "category": "backpack",
     "price": 119.0,
     "bestseller": false,
-    "picture": "../../public/assets/backpack.JPG"
+    "picture": "/assets/Backpack.png"
   }
 ]
