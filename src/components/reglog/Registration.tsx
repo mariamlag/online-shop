@@ -230,10 +230,10 @@ const H2 = styled.h2`
     margin-bottom: 4rem;
   }
 `;
-const MovieIcons = styled.div`
-  cursor: pointer;
-  margin: 0 auto;
-`;
+// const MovieIcons = styled.div`
+//   cursor: pointer;
+//   margin: 0 auto;
+// `;
 const Main = styled.div`
   display: flex;
   justify-content: center;
