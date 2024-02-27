@@ -1,16 +1,51 @@
 :root {
   font-family: "Josefin Sans";
   color: white;
-  background-color: #fbf9f5;
 }
 body {
   height: 100%;
-  margin: 0 auto;
+  margin: 5rem auto;
+  @media (min-width: 775px) {
+    margin: 6rem auto;
+  }
 }
 
 @font-face {
   font-family: "tsripa";
   src: local("tsripa"), url("/fonts/tsripa.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "lit";
+  src: local("litnusx"), url("/fonts/litnusx.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "bolnisi";
+  src: local("bolnisi"), url("/fonts/bolnisi.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "thin";
+  src: local("arachveulebrivi_thin"),
+    url("/fonts/arachveulebrivi_thin.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "nusx";
+  src: local("geo_grigolia_nusx"),
+    url("/fonts/geo_grigolia_nusx.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "rust";
+  src: local("g_rustv"), url("/fonts/g_rustv.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }

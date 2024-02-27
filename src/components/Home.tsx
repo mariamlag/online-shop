@@ -1,13 +1,32 @@
-import { useState } from "react";
-import styled from "styled-components";
+import { useEffect, useState } from "react";
+import styled, { keyframes } from "styled-components";
 import { Link } from "react-router-dom";
 import Item from "./Item";
 import products from "../data/products.json";
 
 export default function Home() {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const bestSellers = products.filter((item) => item.bestseller);
-  const wallet = products.filter((product) => product.category === "wallet");
+  const wallet = products.find((product) => product.name === "LW wallet");
   const showNextProduct = () => {
     const nextIndex = (currentIndex + 1) % products.length;
     const isNextBestseller = products[nextIndex].bestseller;
@@ -31,36 +50,75 @@ export default function Home() {
       <First>
         <P>marmenio</P>
         <Link to="/shop">
-          <But>Shop the collection</But>
+          <But onClick={scrollToTop}>Shop the collection</But>
         </Link>
       </First>
+
       <BestSellers>
         <TittleBest>best sellers</TittleBest>
 
         <Cont>
           <Button src="/assets/prev.png" onClick={showPrevProduct}></Button>
-          <Item items={bestSellers[currentIndex]} setItems={undefined} />
+          {/* <Item items={bestSellers[currentIndex]} setItems={undefined} /> */}
+
+          {windowWidth <= 775 ? (
+            <Item items={[bestSellers[currentIndex]]} setItems={undefined} />
+          ) : windowWidth >= 1440 ? (
+            <Windoww>
+              <Item items={[bestSellers[currentIndex]]} setItems={undefined} />
+
+              <Item
+                items={[bestSellers[currentIndex + 1]]}
+                setItems={undefined}
+              />
+
+              <Item
+                items={[bestSellers[currentIndex + 2]]}
+                setItems={undefined}
+              />
+            </Windoww>
+          ) : (
+            <>
+              <Item items={[bestSellers[currentIndex]]} setItems={undefined} />
+
+              <Item
+                items={[bestSellers[currentIndex + 1]]}
+                setItems={undefined}
+              />
+            </>
+          )}
+          {/* <ItemsContainer>
+            {bestSellers.map((item, index) => (
+              <ItemContainer key={index}>
+                <Item items={item} setItems={undefined} />
+              </ItemContainer>
+            ))}
+          </ItemsContainer> */}
+
           <Button src="/assets/next.png" onClick={showNextProduct}></Button>
         </Cont>
 
         <Link to="/shop">
-          <ShopAll>Shop All Bags</ShopAll>
+          <ShopAll onClick={scrollToTop}>Shop All Bags</ShopAll>
         </Link>
       </BestSellers>
-      <Wallet>
-        <p>women's wallets</p>
-      </Wallet>
-      <Wallets>
-        <Item items={wallet[currentIndex]} setItems={undefined} />
-      </Wallets>
+      <BigDiv>
+        <Wallet>
+          <p>women's wallets</p>
+        </Wallet>
+        <Wallets>
+          {wallet ? <Item items={[wallet]} /> : null}
+          {/* <Item items={wallet} setItems={undefined} /> */}
+        </Wallets>
 
-      <About>
-        <h6>since 2019</h6>
-        <P>marmenio</P>
-        <Link to="/about">
-          <p>About Us</p>
-        </Link>
-      </About>
+        <About>
+          <h6>since 2019</h6>
+          <P>marmenio</P>
+          <Link to="/about" onClick={scrollToTop}>
+            <p>About Us</p>
+          </Link>
+        </About>
+      </BigDiv>
 
       <Instagram>
         <p>follow marmenio on instagram</p>
@@ -69,12 +127,56 @@ export default function Home() {
     </>
   );
 }
+const fadeIn = keyframes`
+  from {
+    opacity: 0.5;
+    transform: translateX(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0.5);
+  }
+`;
+const Windoww = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 5rem;
+`;
+const BigDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  @media (min-width: 775px) {
+    flex-wrap: wrap;
+    flex-direction: inherit;
+    margin-top: 3rem;
+    gap: 0;
+  }
+`;
+// const ItemsContainer = styled.div`
+//   display: flex;
+//   flex-wrap: wrap;
+//   justify-content: space-between;
+//   padding: 0 2rem;
+//   gap: 1rem;
+//   @media (max-width: 375px) {
+//     flex-direction: column;
+//     align-items: center;
+//   }
+// `;
+
+// const ItemContainer = styled.div`
+//   width: 100%;
+//   @media (max-width: 375px) {
+//     width: calc(25% - 1rem);
+//   }
+// `;
 const Instagram = styled.div`
   margin-top: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: #f2eae8;
+
   color: black;
   text-transform: uppercase;
   font-size: 1.7rem;
@@ -89,9 +191,22 @@ const Instagram = styled.div`
     text-decoration: none;
     color: #bb5733;
   }
+  @media (min-width: 775px) {
+    padding: 5rem;
+    font-size: 2.4rem;
+    a {
+      font-size: 2rem;
+    }
+  }
 `;
 const Wallets = styled.div`
-  background-color: #f2eae8;
+  width: 100%;
+  order: 2;
+  @media (min-width: 775px) {
+    width: 50%;
+    order: 3;
+    margin-top: -30rem;
+  }
 `;
 const Cont = styled.div`
   display: flex;
@@ -106,11 +221,13 @@ const Button = styled.img`
   margin-bottom: 5rem;
   width: 3rem;
   cursor: pointer;
+  @media (min-width: 775px) {
+    display: none;
+  }
 `;
 const FirstPic = styled.div`
   width: 100%;
   height: 19rem;
-  /* backdrop-filter: inherit; */
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -120,6 +237,10 @@ const FirstPic = styled.div`
   background-position: center;
   flex-direction: column;
   gap: 2rem;
+
+  @media (min-width: 775px) {
+    height: 40rem;
+  }
 `;
 const About = styled.div`
   width: 100%;
@@ -134,6 +255,15 @@ const About = styled.div`
   flex-direction: column;
   font-size: 1.4rem;
   text-decoration: underline;
+  order: 3;
+  animation: ${fadeIn} 1s ease-in-out;
+  @media (min-width: 775px) {
+    width: 50%;
+    height: 60rem;
+    order: 2;
+    font-size: 2.5rem;
+    gap: 6rem;
+  }
   a {
     color: white;
   }
@@ -148,6 +278,13 @@ const Wallet = styled(FirstPic)`
   text-decoration: underline;
   cursor: pointer;
   backdrop-filter: inherit;
+  order: 1;
+  @media (min-width: 775px) {
+    width: 50%;
+    height: 30rem;
+    margin-top: 0;
+    font-size: 2rem;
+  }
 `;
 const ShopAll = styled.button`
   cursor: pointer;
@@ -160,18 +297,32 @@ const ShopAll = styled.button`
   border: 1px solid #bb5733;
   margin-top: 2rem;
   padding: 1rem 4rem;
+  @media (min-width: 775px) {
+    font-size: 2rem;
+    padding: 1.2rem 6rem;
+  }
 `;
 const First = styled(FirstPic)`
   background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
     url("/assets/firstimg.png");
+  @media (min-width: 775px) {
+    P {
+      font-size: 3rem;
+    }
+  }
 `;
 const TittleBest = styled.p`
   font-size: 1.7rem;
+  font-weight: 300;
   font-family: "Josefin Sans";
   color: black;
   letter-spacing: 0.3rem;
   padding-bottom: 1rem;
-  border-bottom: 0.1rem solid black;
+  border-bottom: 0.15rem solid #000000;
+  animation: ${fadeIn} 1s ease-in;
+  @media (min-width: 775px) {
+    font-size: 3rem;
+  }
 `;
 const BestSellers = styled.div`
   margin-top: 1rem;
@@ -192,10 +343,18 @@ const But = styled.button`
   font-family: "Josefin Sans";
   font-size: 1rem;
   font-weight: 300;
+  @media (min-width: 775px) {
+    margin-top: 2rem;
+    padding: 1rem 5rem;
+    font-size: 1.5rem;
+  }
 `;
 
 const P = styled.p`
   font-family: "tsripa";
   font-size: 1.4rem;
   color: white;
+  @media (min-width: 775px) {
+    font-size: 2rem;
+  }
 `;

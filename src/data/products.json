@@ -49,11 +49,11 @@
   },
   {
     "id": 7,
-    "name": "gucci wallet",
+    "name": "LW wallet",
     "category": "wallet",
     "price": 119.0,
     "bestseller": false,
-    "picture": "../../public/assets/GUCCIWL.JPG"
+    "picture": "../../public/assets/LW.png"
   },
   {
     "id": 8,

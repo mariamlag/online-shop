@@ -12,7 +12,7 @@ export default function Information() {
       <Div>
         <Img src="./assets/flower marmenio.jpg" alt="" />
         <About>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima,
+          მნა mariam ipsum dolor sitamet consectetur adipisicing elit. Minima,
           blanditiis eveniet a itaque fuga dolore alias officiis repudiandae
           optio dolores ipsa aperiam asperiores, dolorem cumque porro quisquam
           architecto. Veniam, saepe.
@@ -22,6 +22,8 @@ export default function Information() {
   );
 }
 const Div = styled.div`
+  font-family: "bolnisi";
+
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -33,14 +35,17 @@ const Img = styled.img`
 const About = styled.p`
   color: black;
   text-align: center;
-  font-weight: 300;
-  font-size: 1.3rem;
+
+  font-size: 1rem;
   line-height: 1.7rem;
   letter-spacing: 0.05rem;
 `;
 const P = styled.p`
   font-family: "tsripa";
   color: #945d09;
+  @media (min-width: 775px) {
+    font-size: 1.7rem;
+  }
 `;
 const Container = styled.div`
   background-color: #fefefe;

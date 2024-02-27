@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { Link } from "react-router-dom";
 
 export default function BurgerMenu() {
@@ -10,7 +10,26 @@ export default function BurgerMenu() {
     { p: "Sale", endpoint: "/sale" },
     { p: "Contact", endpoint: "/contact" },
   ];
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  // const scrollToTop = () => {
+  //   window.scrollTo({
+  //     top: 0,
+  //     behavior: "smooth",
+  //   });
+  // };
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const handleClick = () => {
     setMenuOpen(!menuOpen);
@@ -22,24 +41,72 @@ export default function BurgerMenu() {
 
   return (
     <>
-      <BurgerMenuIcon onClick={handleClick}>
-        <Line menuOpen={menuOpen}></Line>
-        <Line menuOpen={menuOpen}></Line>
-        <Line menuOpen={menuOpen}></Line>
-      </BurgerMenuIcon>
-      <MenuItems menuOpen={menuOpen}>
-        {navArr.map((navObj, index) => (
-          <Link to={navObj.endpoint} key={index} onClick={closeMenu}>
-            <Nav>
-              <P>{navObj.p}</P>
-            </Nav>
-          </Link>
-        ))}
-      </MenuItems>
+      {windowWidth <= 775 ? (
+        <>
+          <BurgerMenuIcon onClick={handleClick}>
+            <Line menuOpen={menuOpen}></Line>
+            <Line menuOpen={menuOpen}></Line>
+            <Line menuOpen={menuOpen}></Line>
+          </BurgerMenuIcon>
+          <MenuItems menuOpen={menuOpen}>
+            {navArr.map((navObj, index) => (
+              <Link to={navObj.endpoint} key={index} onClick={closeMenu}>
+                <Nav>
+                  <P>{navObj.p}</P>
+                </Nav>
+              </Link>
+            ))}
+          </MenuItems>
+        </>
+      ) : (
+        <HeaderNav>
+          {navArr.map((navObj, index) => (
+            <Link to={navObj.endpoint} key={index}>
+              <Nav>
+                <P>{navObj.p}</P>
+              </Nav>
+            </Link>
+          ))}
+        </HeaderNav>
+      )}
     </>
   );
 }
-const P = styled.p``;
+
+//     <>
+//       <BurgerMenuIcon onClick={handleClick}>
+//         <Line menuOpen={menuOpen}></Line>
+//         <Line menuOpen={menuOpen}></Line>
+//         <Line menuOpen={menuOpen}></Line>
+//       </BurgerMenuIcon>
+//       <MenuItems menuOpen={menuOpen}>
+//         {navArr.map((navObj, index) => (
+//           <Link to={navObj.endpoint} key={index} onClick={closeMenu}>
+//             <Nav>
+//               <P>{navObj.p}</P>
+//             </Nav>
+//           </Link>
+//         ))}
+//       </MenuItems>
+//     </>
+//   );
+// }
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 0.3;
+    transform: translateY(0);
+  }
+`;
+const P = styled.p`
+  &:hover {
+    animation: ${fadeIn} 0.9s ease forwards;
+    transform: scale(1.1);
+  }
+`;
 const Nav = styled.div`
   justify-content: center;
   text-align: center;
@@ -53,6 +120,9 @@ const BurgerMenuIcon = styled.div`
   display: flex;
   flex-direction: column;
   cursor: pointer;
+  @media (min-width: 776px) {
+    display: none;
+  }
 `;
 const Line = styled.div<{ menuOpen: boolean }>`
   width: 1.6rem;
@@ -75,6 +145,7 @@ const Line = styled.div<{ menuOpen: boolean }>`
       menuOpen ? "rotate(-45deg) translate(8px, -6.5px)" : "none"};
   }
 `;
+
 const MenuItems = styled.div<{ menuOpen: boolean }>`
   display: ${({ menuOpen }) => (menuOpen ? "block" : "none")};
   position: absolute;
@@ -85,8 +156,28 @@ const MenuItems = styled.div<{ menuOpen: boolean }>`
   width: 100%;
   height: auto;
   transition: top 0.3s;
+  @media (min-width: 776px) {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
   a {
     display: block;
+    text-decoration: none;
+    color: #000000;
+  }
+`;
+const HeaderNav = styled.nav`
+  display: flex;
+  gap: 1.5rem;
+  P {
+    font-size: 1.2rem;
+  }
+  @media (max-width: 775px) {
+    display: none;
+  }
+  a {
+    margin-right: 20px;
     text-decoration: none;
     color: #000000;
   }

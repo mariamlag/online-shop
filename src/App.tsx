@@ -8,9 +8,13 @@ import Item from "./components/Item";
 import Footer from "./components/Footer";
 import Information from "./components/Information";
 import Contact from "./components/contacts/Contact";
+import Login from "./components/reglog/Login";
+import Registration from "./components/reglog/Registration";
+import Content from "./components/contacts/Content";
 
 function App() {
   const [items, setItems] = useState(data);
+
   return (
     <Router>
       <>
@@ -28,8 +32,12 @@ function App() {
           />
           <Route path="/contact" element={<Contact />}></Route>
           <Route path="/about" element={<Information />}></Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/signup" element={<Registration />} />
+
+          <Route path={"/content/:page"} element={<Content />} />
         </Routes>
-        <Footer></Footer>
+        <Footer />
       </>
     </Router>
   );
