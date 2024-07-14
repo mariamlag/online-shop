@@ -3,64 +3,80 @@
     "id": 1,
     "name": "Guess",
     "category": "bag",
+    "color": "brown",
     "price": 99.0,
     "bestseller": true,
-    "picture": "/assets/guess.PNG"
+    "picture": "/assets/guess.PNG",
+    "quantity": 1
   },
   {
     "id": 2,
     "name": "Bag B",
     "category": "bag",
+    "color": "white",
     "price": 109.0,
     "bestseller": true,
-    "picture": "/assets/white.PNG"
+    "picture": "/assets/white.PNG",
+    "quantity": 1
   },
   {
     "id": 3,
     "name": "JWPEI",
     "category": "bag",
+    "color": "white",
     "price": 149.0,
     "bestseller": true,
-    "picture": "/assets/jwpei.PNG"
+    "picture": "/assets/jwpei.PNG",
+    "quantity": 1
   },
   {
     "id": 4,
     "name": "Disel",
     "category": "bag",
+    "color": "white",
     "price": 109.0,
     "bestseller": false,
-    "picture": "/assets/disel.PNG"
+    "picture": "/assets/disel.PNG",
+    "quantity": 1
   },
   {
     "id": 5,
     "name": "Guess 1",
     "category": "bag",
+    "color": "pink",
     "price": 119.0,
     "bestseller": false,
-    "picture": "/assets/guess1.PNG"
+    "picture": "/assets/guess1.PNG",
+    "quantity": 1
   },
   {
     "id": 6,
     "name": "JWKEI",
     "category": "bag",
+    "color": "brown",
     "price": 149.0,
     "bestseller": false,
-    "picture": "/assets/jw.PNG"
+    "picture": "/assets/jw.PNG",
+    "quantity": 1
   },
   {
     "id": 7,
     "name": "LW wallet",
     "category": "wallet",
+    "color": "brown",
     "price": 119.0,
     "bestseller": false,
-    "picture": "/assets/LW.png"
+    "picture": "/assets/LW.png",
+    "quantity": 1
   },
   {
     "id": 8,
     "name": "backpack",
     "category": "backpack",
+    "color": "brown",
     "price": 119.0,
     "bestseller": false,
-    "picture": "/assets/Backpack.png"
+    "picture": "/assets/Backpack.png",
+    "quantity": 1
   }
 ]

@@ -1,9 +1,96 @@
+// import Item from "./Item";
+// import styled from "styled-components";
+// import { Link } from "react-router-dom";
+// import { useState } from "react";
+
+// export default function Shop({ items }: ItemsProps) {
+//   const [selectedColor, setSelectedColor] = useState(null);
+//   const [selectedCategroy, setSelectedCategory] = useState(null);
+
+//   const totalProduct = items.length;
+
+//   const filteredItems = items.filter((item) => {
+//     if (selectedColor && selectedColor) {
+//       return item.color === selectedColor && item.category === selectedCategroy;
+//     } else if (selectedColor) {
+//       return item.color === selectedColor;
+//     } else if (selectedCategroy) {
+//       return item.category === selectedCategroy;
+//     } else {
+//       return true;
+//     }
+//   });
+
+//   return (
+//     <Container>
+//       <P>marmenio</P>
+//       <Information>
+//         <Link to={"/"}>
+//           <Hom>Home</Hom>
+//         </Link>
+//         <Img src="/assets/next.png" alt="" />
+//         <Hom>All Products</Hom>
+//       </Information>
+//       <Title>All Products</Title>
+//       <ProductNumber>{totalProduct} products</ProductNumber>
+
+//       <SortButtons>
+//         <button onClick={() => setSelectedColor(null)}>All Colors</button>
+//         <button onClick={() => setSelectedColor("white")}>White</button>
+//         {/* Add more buttons for other colors if needed */}
+//       </SortButtons>
+//       <SortButtons>
+//         <button onClick={() => setSelectedCategory(null)}>
+//           All Categories
+//         </button>
+//         <button onClick={() => setSelectedCategory("bag")}>Bags</button>
+//         {/* Add more buttons for other categories if needed */}
+//       </SortButtons>
+//       <AllShop>
+//         {filteredItems.map((item) => (
+//           <Item key={item.id} items={[item]} setItems={undefined} />
+//         ))}
+//       </AllShop>
+//     </Container>
+//   );
+// }
+import { useState } from "react";
 import Item from "./Item";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export default function Shop({ items }: ItemsProps) {
+  const [selectedColors, setSelectedColors] = useState<string[]>([]);
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+
   const totalProduct = items.length;
+
+  // Filter items based on selected colors and categories
+  const filteredItems = items.filter((item) => {
+    const isColorMatch =
+      selectedColors.length === 0 || selectedColors.includes(item.color);
+    const isCategoryMatch =
+      selectedCategories.length === 0 ||
+      selectedCategories.includes(item.category as string);
+    return isColorMatch && isCategoryMatch;
+  });
+
+  const toggleColor = (color: string) => {
+    setSelectedColors((prevColors) =>
+      prevColors.includes(color)
+        ? prevColors.filter((c) => c !== color)
+        : [...prevColors, color]
+    );
+  };
+
+  const toggleCategory = (category: string) => {
+    setSelectedCategories((prevCategories) =>
+      prevCategories.includes(category)
+        ? prevCategories.filter((c) => c !== category)
+        : [...prevCategories, category]
+    );
+  };
+
   return (
     <Container>
       <P>marmenio</P>
@@ -16,14 +103,110 @@ export default function Shop({ items }: ItemsProps) {
       </Information>
       <Title>All Products</Title>
       <ProductNumber>{totalProduct} products</ProductNumber>
+
+      <ColorButtons>
+        <p>Colors</p>
+        <div>
+          <button onClick={() => setSelectedColors([])}>Clear Colors</button>
+          {["white", "black", "red", "blue", "green", "pink", "brown"].map(
+            (color) => (
+              <button
+                key={color}
+                onClick={() => toggleColor(color)}
+                className={selectedColors.includes(color) ? "selected" : ""}
+              >
+                {color}
+              </button>
+            )
+          )}
+        </div>
+      </ColorButtons>
+      <CategoryButtons>
+        <p>Categories</p>
+        <div>
+          <button onClick={() => setSelectedCategories([])}>
+            Clear Categories
+          </button>
+          {["bag", "accessory", "backpack", "wallet"].map((category) => (
+            <button
+              key={category}
+              onClick={() => toggleCategory(category)}
+              className={
+                selectedCategories.includes(category) ? "selected" : ""
+              }
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+      </CategoryButtons>
       <AllShop>
-        {items.map((item) => (
-          <Item key={item.id} items={[item]} setItems={undefined} />
+        //{" "}
+        {filteredItems.map((item) => (
+          <Link key={item.id} to={`/SingleItem/${item.id}`}>
+            <Item key={item.id} items={[item]} setItems={undefined} />
+          </Link>
         ))}
       </AllShop>
     </Container>
   );
 }
+const CategoryButtons = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #4c4c4c;
+  padding: 1rem;
+  div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  button {
+    border-style: none;
+    color: #945d09;
+    border-bottom: 1px solid #945d09;
+    background-color: white;
+    width: 6rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+
+    &:hover {
+      color: rgb(4, 4, 4);
+      border-bottom: 1px solid #000000;
+    }
+  }
+`;
+const ColorButtons = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #4c4c4c;
+  padding: 1rem;
+  div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  button {
+    border-style: none;
+    color: #945d09;
+    border-bottom: 1px solid #945d09;
+    background-color: white;
+    width: 6rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+
+    &:hover {
+      color: rgb(0, 0, 0);
+      border-bottom: 1px solid #000000;
+    }
+  }
+`;
 
 const ProductNumber = styled.p`
   color: black;

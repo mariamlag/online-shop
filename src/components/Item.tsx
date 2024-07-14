@@ -64,6 +64,7 @@ const Item: React.FC<ItemProps> = ({ items }) => {
   );
 };
 
+export default Item;
 const fadeIn = keyframes`
   from {
     opacity: 0.5;
@@ -74,7 +75,6 @@ const fadeIn = keyframes`
     transform: translateY(0);
   }
 `;
-export default Item;
 const Div = styled.div`
   display: flex;
   flex-direction: column;
@@ -95,6 +95,7 @@ const Price = styled.p`
   margin-top: 0;
   font-style: oblique;
   font-weight: 200;
+
   @media (min-width: 775px) {
     font-size: 2rem;
   }
@@ -130,6 +131,7 @@ const BestSell = styled.div`
   border-radius: 1rem;
   text-transform: none;
   margin: 1rem;
+  color: white;
   @media (min-width: 775px) {
     font-size: 1.5rem;
   }

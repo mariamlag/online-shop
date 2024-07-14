@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useState } from "react";
 import { keyframes } from "styled-components";
+import { VscAccount } from "react-icons/vsc";
+import { LuLock } from "react-icons/lu";
 
 type FormData = {
   email: string;
@@ -47,6 +49,8 @@ export default function Login() {
         <H2>Login</H2>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Label hasError={!!errors.email}>
+            <VscAccount color="#5b5b5b" />
+
             <Inputs
               type="email"
               placeholder="Email address"
@@ -60,10 +64,13 @@ export default function Login() {
               })}
               hasError={!!errors.email}
             />
+
             {errors.email ? <Error>{errors.email.message}</Error> : null}
           </Label>
 
           <Label hasError={!!errors.password}>
+            <LuLock color="#5b5b5b" />
+
             <Inputs
               type="password"
               placeholder="Password"
@@ -118,13 +125,14 @@ const P = styled.p`
 `;
 const Button = styled.button`
   border-style: none;
-  background-color: #631212;
+  background-color: #ffffff;
   border-radius: 0.5rem;
   padding: 0.3rem;
   position: relative;
-  top: -3.5rem;
+  top: -1rem;
   left: 2rem;
-  color: #000000;
+  color: #ff0000;
+  font-size: 0.7rem;
 `;
 const fadeIn = keyframes`
   from {
@@ -145,9 +153,9 @@ const ErrorModal = styled.div`
   background: #ffffff;
   border-radius: 1rem;
   color: #ff0000;
-  padding: 20px;
-  border: 1px solid #ff0000;
+  padding-left: 0.5rem;
   animation: ${fadeIn} 0.4s ease-in-out;
+  font-size: 0.5rem;
 `;
 const Label: React.ComponentType<
   React.HTMLAttributes<HTMLLabelElement> & LabelProps
@@ -156,9 +164,11 @@ const Label: React.ComponentType<
   flex-direction: row;
   align-items: center;
   border-bottom: ${(props) =>
-    props.hasError ? "1px solid #a92525" : "1px solid #000000"};
-
-  height: 2.5rem;
+    props.hasError ? "1px solid #ff0000" : "1px solid #b39a72c2"};
+  background-color: #ecc69200;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  height: 1.8rem;
   color: white;
   width: -webkit-fill-available;
   cursor: pointer;
@@ -175,7 +185,7 @@ const Div = styled.div`
   padding: 1.5rem;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   flex-direction: column;
   width: 12rem;
   border-radius: 10px;
@@ -195,7 +205,7 @@ const Inputs: React.FC<InputsProps> = styled.input<InputsProps>`
   font-style: normal;
   font-weight: 300;
   line-height: normal;
-  padding-left: 1.6rem;
+  padding-left: 0.5rem;
   color: #000000;
   width: 10rem;
   @media (min-width: ${breakpoints.large}) {
@@ -209,6 +219,7 @@ const Form = styled.form`
   justify-content: center;
   gap: 1.4rem;
   flex-direction: column;
+  align-items: center;
 `;
 const Buttonn = styled.button`
   width: 12rem;
@@ -218,7 +229,7 @@ const Buttonn = styled.button`
 
   border-style: none;
   border-radius: 0.6rem;
-  background: var(--Red, #00000096);
+  background: var(--Red, #a16408a6);
   color: white;
   font-family: "Josefin Sans";
   font-size: 12px;
@@ -261,16 +272,17 @@ const Lo = styled.p`
 `;
 
 const H2 = styled.h2`
-  color: var(--Pure-White, #010101);
+  color: var(--Pure-White, #0101019f);
   font-family: "Josefin Sans";
-  font-size: 32px;
+  font-size: 25px;
   font-style: normal;
   font-weight: 300;
   line-height: normal;
   letter-spacing: -0.5px;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.4rem;
   @media (min-width: ${breakpoints.large}) {
     margin-bottom: 4rem;
+    font-size: 40px;
   }
 `;
 

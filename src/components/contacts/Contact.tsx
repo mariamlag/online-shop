@@ -4,19 +4,19 @@ export default function Contact() {
   return (
     <Container>
       <P>marmenio</P>
-      <h1>Contact</h1>
+      <h1>sakontaqto informacia</h1>
 
       <Cont>
         <Div>
           <Img src="./assets/flower marmenio.jpg" alt="" />
-          <h3>Opening Hours</h3>
+          <h3>samuSao saaTebi</h3>
           <About>
             Mon - Fri: 10am - 8pm <br /> Saturday: 11am - 6pm <br /> Sunday:
             11am - 6pm
           </About>
         </Div>
         <Div>
-          <h3>Address</h3>
+          <h3>misamarTi</h3>
           <About>
             Mebrdzolta st. <br />
             Tbilisi 0101 <br />
@@ -99,6 +99,7 @@ const Container = styled.div`
   background-color: #fefefe;
   color: black;
   padding: 3% 10%;
+  text-align: center;
   gap: 1rem;
   display: flex;
   justify-content: center;
@@ -106,6 +107,10 @@ const Container = styled.div`
   align-items: center;
   h1 {
     font-weight: 300;
+    font-family: "bolnisi";
+  }
+  h3 {
+    font-family: "bolnisi";
   }
   @media (min-width: 775px) {
   }

@@ -67,14 +67,14 @@ export default function Footer() {
   );
 }
 const fadeIn = keyframes`
-  from {
+  /* from {
     opacity: 0;
     transform: translateY(-10px);
   }
   to {
     opacity: 0.3;
     transform: translateY(0);
-  }
+  } */
 `;
 const Pos = styled.div`
   position: absolute;
@@ -126,8 +126,10 @@ const Nav = styled.ul`
   a {
     color: black;
     &:hover {
-      animation: ${fadeIn} 0.9s ease forwards;
-      transform: scale(1.1);
+      color: #bc442c;
+      /* animation: alternate; */
+      /* animation: ${fadeIn} 0.9s ease forwards; */
+      /* transform: scale(1.1); */
     }
   }
   ul {

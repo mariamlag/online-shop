@@ -59,7 +59,6 @@ export default function Home() {
 
         <Cont>
           <Button src="/assets/prev.png" onClick={showPrevProduct}></Button>
-          {/* <Item items={bestSellers[currentIndex]} setItems={undefined} /> */}
 
           {windowWidth <= 775 ? (
             <Item items={[bestSellers[currentIndex]]} setItems={undefined} />
@@ -343,6 +342,10 @@ const But = styled.button`
   font-family: "Josefin Sans";
   font-size: 1rem;
   font-weight: 300;
+  &:hover {
+    border-color: #000000;
+    color: #000000;
+  }
   @media (min-width: 775px) {
     margin-top: 2rem;
     padding: 1rem 5rem;

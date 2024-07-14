@@ -8,14 +8,14 @@ export default function Information() {
         <P>marmenio</P>
       </Link>
 
-      <h1>About Us</h1>
+      <h1>Cvens Sesaxeb</h1>
       <Div>
         <Img src="./assets/flower marmenio.jpg" alt="" />
         <About>
-          მნა mariam ipsum dolor sitamet consectetur adipisicing elit. Minima,
-          blanditiis eveniet a itaque fuga dolore alias officiis repudiandae
-          optio dolores ipsa aperiam asperiores, dolorem cumque porro quisquam
-          architecto. Veniam, saepe.
+          marmenio aris onlain maRazia, sadac SegiZlia SeiZino SenTvis sayvareli
+          nivTebi saxlidan gausvlelad, miwodeba gvaqvs saqarTvelos masStabiT.
+          <br /> <br /> 2019 wlidan dRemde uamravi kmayofili momxmarebliT <br />{" "}
+          Cven vzrunavT, rom TqvenTvis Sopingi iyos sasiamovno.
         </About>
       </Div>
     </Container>
@@ -57,6 +57,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   h1 {
+    font-family: "bolnisi";
     font-weight: 300;
   }
 `;

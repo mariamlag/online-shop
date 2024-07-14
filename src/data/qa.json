@@ -1,44 +1,32 @@
 {
   "questions": [
     {
-      "question": "What is your return policy?",
-      "answer": "Our return policy allows for returns up to 30 days after purchase. Items must be unused and in the same condition as received."
+      "question": "როგორ შევიძნო პროდუქტი?",
+      "answer": "რეგისტრაციის გავლის შემდეგ, შეარჩიე სასურველი ნივთი, დაამატე კალათში და მიყევი თანხის გადახდის ინსტრუქციას, ან დაგვიკავშირდით საკონტაქტო ნომერზე დახმარებისთვის"
     },
     {
-      "question": "Do you offer international shipping?",
-      "answer": "Yes, we offer international shipping to many countries. Shipping costs and delivery times may vary depending on the destination."
+      "question": "შემიძლია თანხის კურიერთან გადახდა?",
+      "answer": "დიახ შეგიძლიათ, თუმცა წინასწარ ნივთის ღირებულებაის 20% უნდა ჩარიცხოთ, ამის შემდეგ გამოგიგზავნით თქვენ კი ადგილზე გადაიხდით თანხას"
     },
     {
-      "question": "How can I track my order?",
-      "answer": "Once your order has shipped, you will receive a tracking number via email. You can use this tracking number to monitor the status of your delivery."
+      "question": "როგორ ხდება პროდუქტის მიწოდება?",
+      "answer": "ნივთს რომელიც ადგილზე გვაქვს, თბილისში გამოგიგზავნით 2 სამუშაო დღეში, რეგიონში 3-4 სამუშაო დღეში "
     },
     {
-      "question": "What payment methods do you accept?",
-      "answer": "We accept various payment methods including credit/debit cards, PayPal, and bank transfers. You can choose your preferred payment method during checkout."
+      "question": "რა ღირს მიწოდების სერვისით სარგებლობა?",
+      "answer": "თბილისში 6 ლარი არის საფასური საკურიერო მომსახურების, რეგიონში 10 ლარი, სოფლებში 15 ლარი "
     },
     {
-      "question": "Can I cancel my order?",
-      "answer": "Orders can typically be canceled within a short window after placement. Please contact our customer service team as soon as possible to inquire about canceling your order."
+      "question": "შემიძლია თუ არა შეძენილი პროდუქტის ჩემით წამოღება?",
+      "answer": "მარმენიო-დან შეძენილი პროდუქციის მიღება, მხოლოდ ჩვენი კურიერების დახმარებითაა შესაძლებელი."
     },
     {
-      "question": "Do you offer gift wrapping?",
-      "answer": "Yes, we offer gift wrapping services for an additional fee. You can select this option during checkout and include a personalized message for the recipient."
+      "question": "რა შემთხვევაში შეიძლება პროდუქტის დაბრუნება?",
+      "answer": "პროდუქციის დაბრუნება და გადახდილი თანხის ანაზღაურება შესაძლებელია იმ შემთხვევაში, თუ: მიღებული ნივთის მონაცემები არ ემთხვევა შენ მიერ შეკვეთილ ნივთს; აღამოაჩინე რომ მარმენიო-დან შეძენილ ნივთს აქვს ქარხნული წუნი; მიწოდების დროს ნივთი დაზიანდა; "
     },
     {
-      "question": "What should I do if my item arrives damaged?",
-      "answer": "If your item arrives damaged, please contact our customer service team immediately. We will work to resolve the issue and arrange for a replacement or refund."
-    },
-    {
-      "question": "How can I contact customer support?",
-      "answer": "You can reach our customer support team by phone at [phone number] or by email at [email address]. Our support hours are [hours of operation]. We strive to respond to all inquiries promptly."
-    },
-    {
-      "question": "Do you offer discounts for bulk orders?",
-      "answer": "Yes, we offer discounts for bulk orders. Please contact our sales team for more information and to discuss pricing options for large quantity purchases."
-    },
-    {
-      "question": "Is my personal information secure?",
-      "answer": "Yes, we take the security of your personal information seriously. We use industry-standard encryption protocols to safeguard your data and ensure that your privacy is protected."
+      "question": "შემიძლია თუ არა ნივთის გადაცვლა?",
+      "answer": "პროდუქციის გადაცვლა შესაძლებელია იმ შემთხვევაში, თუ: მიღებული ნივთის მონაცემები არ ემთხვევა შენ მიერ შეკვეთილ ნივთს; აღამოაჩინე რომ მარმენიო-დან შეძენილ ნივთს აქვს ქარხნული წუნი; მიწოდების დროს ნივთი დაზიანდა;"
     }
   ]
 }

@@ -2,6 +2,7 @@ interface Items {
   id: number;
   name: string;
   category: string;
+  color: string;
   price: number;
   bestseller: boolean;
   picture: string;

@@ -11,6 +11,7 @@ import Contact from "./components/contacts/Contact";
 import Login from "./components/reglog/Login";
 import Registration from "./components/reglog/Registration";
 import Content from "./components/contacts/Content";
+import SingleItem from "./components/contacts/SingleItem";
 
 function App() {
   const [items, setItems] = useState(data);
@@ -34,7 +35,10 @@ function App() {
           <Route path="/about" element={<Information />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/signup" element={<Registration />} />
-
+          <Route
+            path="/SingleItem/:id"
+            element={<SingleItem items={items} />}
+          />
           <Route path={"/content/:page"} element={<Content />} />
         </Routes>
         <Footer />
